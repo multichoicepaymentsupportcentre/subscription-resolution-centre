@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription & Payment Resolution Centre</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f4f9;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #102b50;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+.container {
+    max-width: 650px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #ccc;
+}
+h2 {
+    color: #102b50;
+}
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    background: #102b50;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.notice {
+    background: #fff4d6;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Subscription & Payment Resolution Centre</h1>
+<p>Customer Payment Complaints and Support Requests</p>
+</header>
+
+<div class="container">
+
+<h2>Submit a Support Request</h2>
+
+<p>Please complete the form below with accurate information.</p>
+
+<div class="notice">
+This is an independent support request service. Never submit your PIN, password, OTP, or private verification links.
+</div>
+
+<form id="supportForm">
+
+<label>Full Name</label>
+<input type="text" name="fullname" required>
+
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
+
+<label>Email Address</label>
+<input type="email" name="email">
+
+<label>Subscription Service</label>
+<select name="service" required>
+<option value="">Select service</option>
+<option>DStv</option>
+<option>GOtv</option>
+<option>Other</option>
+</select>
+
+<label>IUC / Smartcard Number</label>
+<input type="text" name="iuc" required>
+
+<label>Amount Paid (GHS)</label>
+<input type="number" name="amount" min="0" step="0.01" required>
+
+<label>Payment Method</label>
+<select name="payment_method" required>
+<option value="">Select payment method</option>
+<option>MTN Mobile Money</option>
+<option>Telecel Cash</option>
+<option>AT Money</option>
+<option>Bank Transfer</option>
+<option>Other</option>
+</select>
+
+<label>Transaction Reference</label>
+<input type="text" name="transaction_reference" required>
+
+<label>Date of Payment</label>
+<input type="date" name="payment_date" required>
+
+<label>Describe Your Complaint</label>
+<textarea name="complaint" rows="5" required></textarea>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+</div>
+
+<footer>
+<p>Customer Support Request Centre</p>
+</footer>
+
+</body>
+</html>
