@@ -137,6 +137,60 @@ This is an independent support request service. Never submit your PIN, password,
 <footer>
 <p>Customer Support Request Centre</p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://fdhmrmdmpbommoshbmjt.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_OT6IIXb5SVOhH1lkkw7ELQ_UAIuYJKv";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+document.getElementById("supportForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const button = form.querySelector('button[type="submit"]');
+
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    const data = {
+        customer_name: form.fullname.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        service_type: form.service.value,
+        iuc_number: form.iuc.value.trim(),
+        amount_paid: Number(form.amount.value),
+        payment_method: form.payment_method.value,
+        transaction_reference: form.transaction_reference.value.trim(),
+        payment_date: form.payment_date.value,
+        issue_description: form.complaint.value.trim()
+    };
+
+    try {
+        const { error } = await supabase
+            .from("customer_requests")
+            .insert([data]);
+
+        if (error) throw error;
+
+        alert("Your complaint has been submitted successfully!");
+
+        form.reset();
+
+    } catch (error) {
+        console.error(error);
+        alert("Submission failed: " + error.message);
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Submit Request";
+    }
+});
+</script>
 </body>
 </html>
